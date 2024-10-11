@@ -21,7 +21,7 @@ class MycaulongSpider(scrapy.Spider):
     
     def parseCourseDetailPage(self, response):
         item = response.meta['datacourse']
-       item['ma'] = response.xpath('normalize-space(string(//div[@class="sku-product clearfix"]/span[2]/span))').get()
+        item['ma'] = response.xpath('normalize-space(string(//div[@class="sku-product clearfix"]/span[2]/span))').get()
         item['tensp'] = response.xpath('normalize-space(string(//div[@class="details-pro col-12 col-md-6 col-lg-7"]/h1))').get()
         item['gia'] = response.xpath('normalize-space(string(//div[@class="price-box clearfix"]/span[1]/span/span))').get()
         item['thuongHieu'] = response.xpath('normalize-space(string(//div[@class="inventory_quantity"]/span[1]/a))').get()
